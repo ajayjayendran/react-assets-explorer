@@ -2,10 +2,12 @@
   "name": "react-assets-explorer",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "init": "ts-node server/generate-assets.mjs",
     "start": "node server/server.mjs"
   },
   "keywords": [],
@@ -13,6 +15,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
     "express": "^4.21.0",
     "open": "^10.1.0"
   },
@@ -21,6 +24,7 @@
     "@types/node": "^22.5.5",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
+    "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "ts-node": "^10.9.2",
