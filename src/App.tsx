@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "../node_modules/axios/index";
 
 type IconData = {
   name: string;
@@ -9,20 +10,15 @@ const App: React.FC = () => {
   const [icons, setIcons] = useState<IconData[]>([]);
 
   useEffect(() => {
-    fetch("/icons")
+    axios
+      .get("/icons")
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response; // Parse the JSON response
-      })
-      .then((data) => {
-        console.log("Fetched icons data:", data); // Log the received data
-        //setIcons(data); // Update state with icons
+        console.log("Fetched icons data:", response.data);
+        setIcons(response.data);
       })
       .catch((err) => {
         console.error("Error fetching icons:", err);
-        console.log("Error fetching icons."); // Handle errors
+        //setError("Error fetching icons.");
       });
   }, []);
 

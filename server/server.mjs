@@ -1,17 +1,14 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
+import cors from "cors";
 
 const app = express();
 const PORT = 3000;
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-// Add a catch-all middleware to log any request to the server
-app.use((req, res, next) => {
-  console.log(`Received request: ${req.method} ${req.url}`);
-  next();
-});
+app.use(cors());
 
 // Endpoint to serve icons data
 app.get("/icons", (req, res) => {
@@ -29,9 +26,9 @@ app.get("/icons", (req, res) => {
 
     // Check if the data is valid JSON
     try {
-      console.log(data);
       const jsonData = JSON.parse(data);
-      res.json(jsonData);
+      console.log(jsonData);
+      res.send(jsonData);
     } catch (parseErr) {
       console.error("Error parsing JSON:", parseErr);
       res.status(500).send("Invalid JSON format");
