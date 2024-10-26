@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.asset-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.asset-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.error {
+  color: red;
+  font-size: 1.2em;
+  margin-top: 50px;
+}
